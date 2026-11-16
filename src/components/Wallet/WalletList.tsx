@@ -25,6 +25,14 @@ interface Wallet {
 const isDeprecated = (w: Wallet) =>
   w.status?.toLowerCase() === "deprecated";
 
+const isBeta = (w: Wallet) =>
+  w.stage?.trim().toLowerCase() === "beta";
+
+// Wallets with no shielded pool at all (Pools: Transparent).
+const isTransparentOnly = (w: Wallet) =>
+  w.pools.length > 0 &&
+  w.pools.every((p) => p.trim().toLowerCase() === "transparent");
+
 // NU7 compatibility sorting order.
 const NU7_ORDER = [
   "compatible",
@@ -100,6 +108,28 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
   const deprecatedNote =
     t?.wallets?.deprecatedNote ??
     "Kept for reference only. Do not use these wallets for new funds.";
+
+  const sectionLabels = {
+    production: {
+      title: t?.wallets?.productionTitle ?? "In production",
+      note:
+        t?.wallets?.productionNote ??
+        "Released wallets for everyday use.",
+    },
+    beta: {
+      title: t?.wallets?.betaTitle ?? "Beta wallets",
+      note:
+        t?.wallets?.betaNote ??
+        "Still in testing. Expect bugs and start with small amounts.",
+    },
+    transparentOnly: {
+      title:
+        t?.wallets?.transparentOnlyTitle ?? "Transparent-only wallets",
+      note:
+        t?.wallets?.transparentOnlyNote ??
+        "These wallets cannot use shielded pools. Balances and transactions are public on the blockchain.",
+    },
+  };
 
   const handleToggleFilter = () =>
     setIsFilterVisible((v) => !v);
@@ -354,6 +384,61 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
       (likes[b.title] ?? 0) - (likes[a.title] ?? 0)
   );
 
+  // In production first, then Beta, then Transparent-only.
+  // A beta wallet stays in Beta even if it is transparent-only.
+  const walletSections = [
+    {
+      key: "production",
+      ...sectionLabels.production,
+      wallets: sortedWallets.filter(
+        (w) => !isBeta(w) && !isTransparentOnly(w)
+      ),
+    },
+    {
+      key: "beta",
+      ...sectionLabels.beta,
+      wallets: sortedWallets.filter(isBeta),
+    },
+    {
+      key: "transparent-only",
+      ...sectionLabels.transparentOnly,
+      wallets: sortedWallets.filter(
+        (w) => !isBeta(w) && isTransparentOnly(w)
+      ),
+    },
+  ].filter((section) => section.wallets.length > 0);
+
+  const renderWallet = (wallet: Wallet) => (
+    <WalletItem
+      key={wallet.title}
+      title={wallet.title}
+      link={wallet.url}
+      logo={wallet.imageUrl}
+      tags={[
+        {
+          category: "Devices",
+          values: wallet.devices,
+        },
+        {
+          category: "Pools",
+          values: wallet.pools,
+        },
+        {
+          category: "Features",
+          values: wallet.features,
+        },
+      ]}
+      likes={likes[wallet.title] || 0}
+      syncSpeed={wallet.syncSpeed}
+      nu7={wallet.nu7}
+      stage={wallet.stage}
+      onLike={() => handleLike(wallet.title)}
+      onDislike={() => handleDislike(wallet.title)}
+      error={error[wallet.title]}
+      success={success[wallet.title]}
+    />
+  );
+
   return (
     <>
       <div className="wl-root">
@@ -470,42 +555,28 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
               </span>
             </div>
 
-            <div className="wl-wallet-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sortedWallets.map((wallet) => (
-                <WalletItem
-                  key={wallet.title}
-                  title={wallet.title}
-                  link={wallet.url}
-                  logo={wallet.imageUrl}
-                  tags={[
-                    {
-                      category: "Devices",
-                      values: wallet.devices,
-                    },
-                    {
-                      category: "Pools",
-                      values: wallet.pools,
-                    },
-                    {
-                      category: "Features",
-                      values: wallet.features,
-                    },
-                  ]}
-                  likes={likes[wallet.title] || 0}
-                  syncSpeed={wallet.syncSpeed}
-                  nu7={wallet.nu7}
-                  stage={wallet.stage}
-                  onLike={() =>
-                    handleLike(wallet.title)
-                  }
-                  onDislike={() =>
-                    handleDislike(wallet.title)
-                  }
-                  error={error[wallet.title]}
-                  success={success[wallet.title]}
-                />
-              ))}
-            </div>
+            {walletSections.map((section) => (
+              <section
+                key={section.key}
+                aria-labelledby={`wl-section-${section.key}`}
+                className="wl-section"
+                data-section={section.key}
+              >
+                <div className="wl-section-header">
+                  <h2
+                    id={`wl-section-${section.key}`}
+                    className="wl-section-title"
+                  >
+                    {section.title} ({section.wallets.length})
+                  </h2>
+                  <p className="wl-section-note">{section.note}</p>
+                </div>
+
+                <div className="wl-wallet-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {section.wallets.map(renderWallet)}
+                </div>
+              </section>
+            ))}
 
             {/* Deprecated wallets */}
             {filteredDeprecated.length > 0 && (

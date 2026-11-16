@@ -80,6 +80,12 @@ export function parseMarkdown(md: string) {
       }
     });
 
+    // Some entries mark a beta wallet as `- Status: Beta` instead of
+    // `- Stage: Beta`. Treat both as the Beta release stage.
+    if (!stage && status.toLowerCase() === 'beta') {
+      stage = 'Beta';
+    }
+
     return {
       title,
       url,

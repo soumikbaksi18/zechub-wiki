@@ -194,4 +194,124 @@ describe("WalletList", () => {
     expect(screen.getByText("Alive")).toBeInTheDocument();
     expect(screen.queryByText("Gone")).not.toBeInTheDocument();
   });
+
+  describe("sections", () => {
+    const sectioned = parseMarkdown(`
+## [Shielded](https://s.example)
+- Devices: Mobile
+- Pools: Transparent | Sapling | Ironwood
+
+---
+## [Hardware](https://h.example)
+- Devices: Hardware
+- Pools: Transparent | Ironwood
+
+---
+## [StageBeta](https://sb.example)
+- Devices: Desktop
+- Pools: Transparent | Ironwood
+- Stage: Beta
+
+---
+## [StatusBeta](https://st.example)
+- Devices: Mobile
+- Pools: Transparent | Sapling
+- Status: Beta
+
+---
+## [TOnly](https://t.example)
+- Devices: Mobile
+- Pools: Transparent
+
+---
+## [Gone](https://gone.example)
+- Devices: Desktop
+- Pools: Transparent
+- Status: Deprecated | End-of-life
+`);
+
+    const sectionOf = (name: string) =>
+      screen
+        .getByRole("heading", { level: 5, name })
+        .closest("section[data-section]")!
+        .getAttribute("data-section");
+
+    it("puts Beta below in-production and Transparent-only below Beta", () => {
+      render(<WalletList allWallets={sectioned} />);
+
+      const headings = screen
+        .getAllByRole("heading", { level: 2 })
+        .map((h) => h.textContent);
+
+      expect(headings).toEqual([
+        "In production (2)",
+        "Beta wallets (2)",
+        "Transparent-only wallets (1)",
+      ]);
+
+      expect(sectionOf("Shielded")).toBe("production");
+      // Transparent plus a shielded pool is not transparent-only.
+      expect(sectionOf("Hardware")).toBe("production");
+      expect(sectionOf("StageBeta")).toBe("beta");
+      expect(sectionOf("StatusBeta")).toBe("beta");
+      expect(sectionOf("TOnly")).toBe("transparent-only");
+
+      // Deprecated wallets stay in their own block, last.
+      const deprecated = screen
+        .getByText(/Deprecated \/ no longer supports Zcash \(1\)/)
+        .closest("details") as HTMLElement;
+      const transparentSection = screen
+        .getByText("TOnly")
+        .closest("section[data-section]") as HTMLElement;
+
+      expect(
+        transparentSection.compareDocumentPosition(deprecated) &
+          Node.DOCUMENT_POSITION_FOLLOWING
+      ).toBeTruthy();
+
+      // The total count covers every active section.
+      expect(screen.getAllByText("5 wallets").length).toBeGreaterThan(0);
+    });
+
+    it("shows each section's subtitle", () => {
+      render(<WalletList allWallets={sectioned} />);
+
+      expect(
+        screen.getByText("Released wallets for everyday use.")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(/Still in testing/)
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(/cannot use shielded pools/)
+      ).toBeInTheDocument();
+    });
+
+    it("treats `Status: Beta` as the Beta stage", () => {
+      const [wallet] = parseMarkdown(`
+## [StatusBeta](https://st.example)
+- Pools: Transparent
+- Status: Beta
+`);
+
+      expect(wallet.stage).toBe("Beta");
+    });
+
+    it("hides a section when filters leave it empty", async () => {
+      const user = userEvent.setup();
+
+      render(<WalletList allWallets={sectioned} />);
+
+      const sidebar = document.querySelector(".wl-sidebar") as HTMLElement;
+
+      await user.click(
+        await within(sidebar).findByRole("checkbox", { name: "Sapling" })
+      );
+
+      expect(
+        screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent)
+      ).toEqual(["In production (1)", "Beta wallets (1)"]);
+      expect(screen.queryByText("TOnly")).not.toBeInTheDocument();
+    });
+  });
 });

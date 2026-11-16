@@ -478,7 +478,13 @@
     "activeCount": "{count}개 적용됨",
     "savedReview": "리뷰를 저장했습니다!",
     "errorGettingLikes": "좋아요를 가져오는 중 오류:",
-    "errorUpdatingRating": "평점을 업데이트하는 중 오류:"
+    "errorUpdatingRating": "평점을 업데이트하는 중 오류:",
+    "productionTitle": "정식 출시",
+    "productionNote": "일상적으로 사용할 수 있도록 출시된 지갑입니다.",
+    "betaTitle": "베타 지갑",
+    "betaNote": "아직 테스트 중입니다. 버그가 있을 수 있으니 소액으로 시작하세요.",
+    "transparentOnlyTitle": "투명 전용 지갑",
+    "transparentOnlyNote": "이 지갑들은 차폐 풀을 사용할 수 없습니다. 잔액과 거래 내역이 블록체인에 공개됩니다."
   },
   "guides": {
     "title": "가이드",

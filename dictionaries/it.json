@@ -478,7 +478,13 @@
     "activeCount": "{count} attivi",
     "savedReview": "La tua recensione è stata salvata.",
     "errorGettingLikes": "Errore nel recupero dei voti:",
-    "errorUpdatingRating": "Errore nell'aggiornamento del voto:"
+    "errorUpdatingRating": "Errore nell'aggiornamento del voto:",
+    "productionTitle": "In produzione",
+    "productionNote": "Portafogli rilasciati per l'uso quotidiano.",
+    "betaTitle": "Portafogli beta",
+    "betaNote": "Ancora in fase di test. Aspettati dei bug e inizia con piccoli importi.",
+    "transparentOnlyTitle": "Portafogli solo trasparenti",
+    "transparentOnlyNote": "Questi portafogli non possono usare i pool schermati. Saldi e transazioni sono pubblici sulla blockchain."
   },
   "guides": {
     "title": "Guide",

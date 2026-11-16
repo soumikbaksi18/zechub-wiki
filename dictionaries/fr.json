@@ -478,7 +478,13 @@
     "activeCount": "{count} actifs",
     "savedReview": "Nous avons enregistré votre avis !",
     "errorGettingLikes": "Erreur lors de la récupération des likes :",
-    "errorUpdatingRating": "Erreur lors de la mise à jour de la note :"
+    "errorUpdatingRating": "Erreur lors de la mise à jour de la note :",
+    "productionTitle": "En production",
+    "productionNote": "Portefeuilles publiés pour un usage quotidien.",
+    "betaTitle": "Portefeuilles bêta",
+    "betaNote": "Encore en test. Attendez-vous à des bugs et commencez avec de petits montants.",
+    "transparentOnlyTitle": "Portefeuilles uniquement transparents",
+    "transparentOnlyNote": "Ces portefeuilles ne peuvent pas utiliser les pools blindés. Les soldes et les transactions sont publics sur la blockchain."
   },
   "guides": {
     "title": "Guides",

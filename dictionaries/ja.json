@@ -478,7 +478,13 @@
     "activeCount": "{count}件適用中",
     "savedReview": "レビューを保存しました！",
     "errorGettingLikes": "「いいね」の取得エラー:",
-    "errorUpdatingRating": "評価の更新エラー:"
+    "errorUpdatingRating": "評価の更新エラー:",
+    "productionTitle": "正式リリース",
+    "productionNote": "日常利用向けにリリース済みのウォレット。",
+    "betaTitle": "ベータ版ウォレット",
+    "betaNote": "テスト中です。不具合が起こる可能性があるため、少額から始めてください。",
+    "transparentOnlyTitle": "トランスペアレント専用ウォレット",
+    "transparentOnlyNote": "これらのウォレットはシールドプールを利用できません。残高と取引はブロックチェーン上で公開されます。"
   },
   "guides": {
     "title": "ガイド",

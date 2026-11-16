@@ -478,7 +478,13 @@
     "activeCount": "{count} etkin",
     "savedReview": "İncelemenizi kaydettik!",
     "errorGettingLikes": "Hata beğeniler alınırken:",
-    "errorUpdatingRating": "Hata puan güncellenirken:"
+    "errorUpdatingRating": "Hata puan güncellenirken:",
+    "productionTitle": "Yayında",
+    "productionNote": "Günlük kullanım için yayınlanmış cüzdanlar.",
+    "betaTitle": "Beta cüzdanlar",
+    "betaNote": "Hâlâ test aşamasında. Hatalar olabilir; küçük miktarlarla başlayın.",
+    "transparentOnlyTitle": "Yalnızca şeffaf cüzdanlar",
+    "transparentOnlyNote": "Bu cüzdanlar korumalı havuzları kullanamaz. Bakiyeler ve işlemler blokzincirde herkese açıktır."
   },
   "guides": {
     "title": "Rehberler",

@@ -478,7 +478,13 @@
     "activeCount": "{count} le dɔ wɔm",
     "savedReview": "Míedzra wò numetotoa ɖo!",
     "errorGettingLikes": "Vodada le likes xɔxɔ me:",
-    "errorUpdatingRating": "Vodada le asitɔtrɔ le dzidzedzekpɔkpɔ ŋu:"
+    "errorUpdatingRating": "Vodada le asitɔtrɔ le dzidzedzekpɔkpɔ ŋu:",
+    "productionTitle": "Wole zɔzɔm",
+    "productionNote": "Gakotoku siwo woɖe ɖe go na gbesiagbe zazã.",
+    "betaTitle": "Beta gakotokuwo",
+    "betaNote": "Wole wo dom kpɔ. Vodada aɖewo ate ŋu adzɔ, eya ta dze egɔme kple ga sue.",
+    "transparentOnlyTitle": "Transparent gakotoku ɖeɖekpakpɔwo",
+    "transparentOnlyNote": "Gakotoku siawo mate ŋu azã shielded pools o. Ga si le asiwò kple asitsatsawo dze le blockchain dzi na amesiame."
   },
   "guides": {
     "title": "Mɔfialawo",

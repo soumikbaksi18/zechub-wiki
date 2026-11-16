@@ -478,7 +478,13 @@
     "activeCount": "{count} ativos",
     "savedReview": "Salvamos sua avaliação!",
     "errorGettingLikes": "Erro ao obter curtidas:",
-    "errorUpdatingRating": "Erro ao atualizar a avaliação:"
+    "errorUpdatingRating": "Erro ao atualizar a avaliação:",
+    "productionTitle": "Em produção",
+    "productionNote": "Carteiras lançadas para o uso diário.",
+    "betaTitle": "Carteiras beta",
+    "betaNote": "Ainda em teste. Espere bugs e comece com valores pequenos.",
+    "transparentOnlyTitle": "Carteiras apenas transparentes",
+    "transparentOnlyNote": "Estas carteiras não podem usar pools blindados. Saldos e transações são públicos na blockchain."
   },
   "guides": {
     "title": "Guias",

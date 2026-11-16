@@ -478,7 +478,13 @@
     "activeCount": "{count} aktiv",
     "savedReview": "Wir haben deine Bewertung gespeichert!",
     "errorGettingLikes": "Fehler beim Abrufen der Likes:",
-    "errorUpdatingRating": "Fehler beim Aktualisieren der Bewertung:"
+    "errorUpdatingRating": "Fehler beim Aktualisieren der Bewertung:",
+    "productionTitle": "Im Produktivbetrieb",
+    "productionNote": "Veröffentlichte Wallets für den Alltag.",
+    "betaTitle": "Beta-Wallets",
+    "betaNote": "Noch in der Testphase. Rechne mit Fehlern und beginne mit kleinen Beträgen.",
+    "transparentOnlyTitle": "Nur transparente Wallets",
+    "transparentOnlyNote": "Diese Wallets können keine abgeschirmten Pools nutzen. Guthaben und Transaktionen sind auf der Blockchain öffentlich."
   },
   "guides": {
     "title": "Anleitungen",

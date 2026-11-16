@@ -478,7 +478,13 @@
     "activeCount": "{count} a ɛyɛ adwuma",
     "savedReview": "Yɛde wo nsusuwii no siee!",
     "errorGettingLikes": "Mfomso a ɛbae wɔ likes a wonya mu:",
-    "errorUpdatingRating": "Mfomso a ɛwɔ update rating mu:"
+    "errorUpdatingRating": "Mfomso a ɛwɔ update rating mu:",
+    "productionTitle": "Wɔde redi dwuma",
+    "productionNote": "Sikakorabea a wɔayi adi ama da biara dwumadi.",
+    "betaTitle": "Beta sikakorabea",
+    "betaNote": "Wɔda so resɔ ahwɛ. Mfomso bi betumi aba, enti fi ase fa sika kakra.",
+    "transparentOnlyTitle": "Sikakorabea a ɛyɛ transparent nko ara",
+    "transparentOnlyNote": "Saa sikakorabea yi ntumi mfa shielded pools nni dwuma. Wo sika ne wo nsesa da adi wɔ blockchain no so ma obiara hu."
   },
   "guides": {
     "title": "Akwankyerɛfo",

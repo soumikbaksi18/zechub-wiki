@@ -478,7 +478,13 @@
     "activeCount": "{count} ń ṣiṣẹ́",
     "savedReview": "A ti pa àtúnyẹ̀wò rẹ mọ́!",
     "errorGettingLikes": "Àṣìṣe tí ó ń gba àwọn ìfẹ́:",
-    "errorUpdatingRating": "Àkọsílẹ̀ àtúnṣe àṣìṣe:"
+    "errorUpdatingRating": "Àkọsílẹ̀ àtúnṣe àṣìṣe:",
+    "productionTitle": "Ti wà fún lílò",
+    "productionNote": "Wàléètì tí a ti tú jáde fún lílò ojoojúmọ́.",
+    "betaTitle": "Wàléètì beta",
+    "betaNote": "Ṣì wà nínú ìdánwò. Retí àṣìṣe, kí o sì bẹ̀rẹ̀ pẹ̀lú iye kékeré.",
+    "transparentOnlyTitle": "Wàléètì transparent nìkan",
+    "transparentOnlyNote": "Àwọn wàléètì wọ̀nyí kò lè lo shielded pools. Iye owó àti àwọn ìdúnàádúrà hàn sí gbogbo ènìyàn lórí blockchain."
   },
   "guides": {
     "title": "Àwọn ìwé atọ́nà",

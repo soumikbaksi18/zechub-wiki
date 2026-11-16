@@ -452,7 +452,13 @@
     "activeCount": "{count} active",
     "savedReview": "We saved your review!",
     "errorGettingLikes": "Error getting likes:",
-    "errorUpdatingRating": "Error updating rating:"
+    "errorUpdatingRating": "Error updating rating:",
+    "productionTitle": "In production",
+    "productionNote": "Released wallets for everyday use.",
+    "betaTitle": "Beta wallets",
+    "betaNote": "Still in testing. Expect bugs and start with small amounts.",
+    "transparentOnlyTitle": "Transparent-only wallets",
+    "transparentOnlyNote": "These wallets cannot use shielded pools. Balances and transactions are public on the blockchain."
   },
   "guides": {
     "title": "Guides",

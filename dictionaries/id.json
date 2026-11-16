@@ -478,7 +478,13 @@
     "activeCount": "{count} aktif",
     "savedReview": "Ulasan Anda telah disimpan!",
     "errorGettingLikes": "Kesalahan saat mengambil suka:",
-    "errorUpdatingRating": "Kesalahan saat memperbarui peringkat:"
+    "errorUpdatingRating": "Kesalahan saat memperbarui peringkat:",
+    "productionTitle": "Sudah rilis",
+    "productionNote": "Dompet yang sudah dirilis untuk penggunaan sehari-hari.",
+    "betaTitle": "Dompet beta",
+    "betaNote": "Masih dalam pengujian. Mungkin ada bug, mulailah dengan jumlah kecil.",
+    "transparentOnlyTitle": "Dompet khusus transparan",
+    "transparentOnlyNote": "Dompet ini tidak dapat menggunakan pool terlindungi. Saldo dan transaksi bersifat publik di blockchain."
   },
   "guides": {
     "title": "Panduan",

@@ -478,7 +478,13 @@
     "activeCount": "{count} نشطة",
     "savedReview": "لقد حفظنا مراجعتك!",
     "errorGettingLikes": "خطأ في جلب الإعجابات:",
-    "errorUpdatingRating": "خطأ في تحديث التقييم:"
+    "errorUpdatingRating": "خطأ في تحديث التقييم:",
+    "productionTitle": "قيد الإنتاج",
+    "productionNote": "محافظ صادرة للاستخدام اليومي.",
+    "betaTitle": "محافظ تجريبية (بيتا)",
+    "betaNote": "لا تزال قيد الاختبار. توقّع وجود أخطاء وابدأ بمبالغ صغيرة.",
+    "transparentOnlyTitle": "محافظ شفافة فقط",
+    "transparentOnlyNote": "لا تستطيع هذه المحافظ استخدام المجمّعات المحمية. الأرصدة والمعاملات علنية على البلوكتشين."
   },
   "guides": {
     "title": "الأدلة",

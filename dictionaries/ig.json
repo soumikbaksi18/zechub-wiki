@@ -478,7 +478,13 @@
     "activeCount": "{count} na-arụ ọrụ",
     "savedReview": "Anyị chebere nyocha gị!",
     "errorGettingLikes": "Njehie na-enweta mmasị:",
-    "errorUpdatingRating": "Nhazi mmelite njehie:"
+    "errorUpdatingRating": "Nhazi mmelite njehie:",
+    "productionTitle": "Ọ na-arụ ọrụ",
+    "productionNote": "Akpa ego ewepụtara maka iji kwa ụbọchị.",
+    "betaTitle": "Akpa ego beta",
+    "betaNote": "A ka na-anwale ha. Atụ anya njehie, ma bido na obere ego.",
+    "transparentOnlyTitle": "Akpa ego transparent naanị",
+    "transparentOnlyNote": "Akpa ego ndị a enweghị ike iji shielded pools. Ego dị n'ime ha na azụmahịa ha pụtara ìhè na blockchain."
   },
   "guides": {
     "title": "Akwụkwọ ntuziaka",

@@ -592,6 +592,28 @@ code::-webkit-scrollbar-track {
   color: var(--clr-muted);
 }
 
+/* In production / Beta / Transparent-only groups */
+.wl-section + .wl-section {
+  margin-top: 48px;
+}
+
+.wl-section-header {
+  margin-bottom: 20px;
+}
+
+.wl-section-title {
+  font-family: "Syne", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.wl-section-note {
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: var(--clr-muted);
+}
+
 .wl-active-count {
   display: inline-flex;
   align-items: center;
