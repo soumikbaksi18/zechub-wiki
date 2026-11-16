@@ -68,6 +68,9 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
   const [error, setError] = useState<{ [key: string]: string }>({});
   const [success, setSuccess] = useState<{ [key: string]: string }>({});
   const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(
+    () => new Set()
+  );
 
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
   const closeFilterRef = useRef<HTMLButtonElement>(null);
@@ -386,10 +389,12 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
 
   // In production first, then Beta, then Transparent-only.
   // A beta wallet stays in Beta even if it is transparent-only.
+  // Beta and Transparent-only can be collapsed; In production stays open.
   const walletSections = [
     {
       key: "production",
       ...sectionLabels.production,
+      collapsible: false,
       wallets: sortedWallets.filter(
         (w) => !isBeta(w) && !isTransparentOnly(w)
       ),
@@ -397,16 +402,29 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
     {
       key: "beta",
       ...sectionLabels.beta,
+      collapsible: true,
       wallets: sortedWallets.filter(isBeta),
     },
     {
       key: "transparent-only",
       ...sectionLabels.transparentOnly,
+      collapsible: true,
       wallets: sortedWallets.filter(
         (w) => !isBeta(w) && isTransparentOnly(w)
       ),
     },
   ].filter((section) => section.wallets.length > 0);
+
+  const toggleSection = (key: string) =>
+    setCollapsedSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
+      }
+      return next;
+    });
 
   const renderWallet = (wallet: Wallet) => (
     <WalletItem
@@ -555,28 +573,65 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
               </span>
             </div>
 
-            {walletSections.map((section) => (
-              <section
-                key={section.key}
-                aria-labelledby={`wl-section-${section.key}`}
-                className="wl-section"
-                data-section={section.key}
-              >
-                <div className="wl-section-header">
-                  <h2
-                    id={`wl-section-${section.key}`}
-                    className="wl-section-title"
-                  >
-                    {section.title} ({section.wallets.length})
-                  </h2>
-                  <p className="wl-section-note">{section.note}</p>
-                </div>
+            {walletSections.map((section) => {
+              const heading = `${section.title} (${section.wallets.length})`;
+              const gridId = `wl-section-${section.key}-wallets`;
+              const isCollapsed =
+                section.collapsible && collapsedSections.has(section.key);
 
-                <div className="wl-wallet-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {section.wallets.map(renderWallet)}
-                </div>
-              </section>
-            ))}
+              return (
+                <section
+                  key={section.key}
+                  aria-labelledby={`wl-section-${section.key}`}
+                  className="wl-section"
+                  data-section={section.key}
+                >
+                  <div className="wl-section-header">
+                    <h2
+                      id={`wl-section-${section.key}`}
+                      className="wl-section-title"
+                    >
+                      {section.collapsible ? (
+                        <button
+                          type="button"
+                          className="wl-section-toggle rounded focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                          aria-expanded={!isCollapsed}
+                          aria-controls={gridId}
+                          onClick={() => toggleSection(section.key)}
+                        >
+                          <span>{heading}</span>
+                          <svg
+                            className="wl-section-chevron"
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        </button>
+                      ) : (
+                        heading
+                      )}
+                    </h2>
+                    <p className="wl-section-note">{section.note}</p>
+                  </div>
+
+                  <div
+                    id={gridId}
+                    hidden={isCollapsed}
+                    className="wl-wallet-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  >
+                    {section.wallets.map(renderWallet)}
+                  </div>
+                </section>
+              );
+            })}
 
             {/* Deprecated wallets */}
             {filteredDeprecated.length > 0 && (

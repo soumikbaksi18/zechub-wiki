@@ -297,6 +297,52 @@ describe("WalletList", () => {
       expect(wallet.stage).toBe("Beta");
     });
 
+    it("collapses and expands the Beta and Transparent-only sections", async () => {
+      const user = userEvent.setup();
+
+      render(<WalletList allWallets={sectioned} />);
+
+      // In production is always open, so it has no toggle.
+      expect(
+        screen.queryByRole("button", { name: /In production/ })
+      ).not.toBeInTheDocument();
+
+      const beta = screen.getByRole("button", { name: "Beta wallets (2)" });
+      const transparent = screen.getByRole("button", {
+        name: "Transparent-only wallets (1)",
+      });
+
+      expect(beta).toHaveAttribute("aria-expanded", "true");
+      expect(transparent).toHaveAttribute("aria-expanded", "true");
+
+      await user.click(beta);
+
+      expect(beta).toHaveAttribute("aria-expanded", "false");
+      expect(
+        screen.queryByRole("heading", { level: 5, name: "StageBeta" })
+      ).not.toBeInTheDocument();
+      // The other sections are unaffected.
+      expect(
+        screen.getByRole("heading", { level: 5, name: "TOnly" })
+      ).toBeInTheDocument();
+      // The subtitle stays visible while collapsed.
+      expect(screen.getByText(/Still in testing/)).toBeVisible();
+
+      await user.click(beta);
+
+      expect(beta).toHaveAttribute("aria-expanded", "true");
+      expect(
+        screen.getByRole("heading", { level: 5, name: "StageBeta" })
+      ).toBeInTheDocument();
+
+      await user.click(transparent);
+
+      expect(transparent).toHaveAttribute("aria-expanded", "false");
+      expect(
+        screen.queryByRole("heading", { level: 5, name: "TOnly" })
+      ).not.toBeInTheDocument();
+    });
+
     it("hides a section when filters leave it empty", async () => {
       const user = userEvent.setup();
 
