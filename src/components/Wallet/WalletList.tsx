@@ -389,12 +389,11 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
 
   // In production first, then Beta, then Transparent-only.
   // A beta wallet stays in Beta even if it is transparent-only.
-  // Beta and Transparent-only can be collapsed; In production stays open.
+  // Every section can be collapsed with the chevron in its heading.
   const walletSections = [
     {
       key: "production",
       ...sectionLabels.production,
-      collapsible: false,
       wallets: sortedWallets.filter(
         (w) => !isBeta(w) && !isTransparentOnly(w)
       ),
@@ -402,13 +401,11 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
     {
       key: "beta",
       ...sectionLabels.beta,
-      collapsible: true,
       wallets: sortedWallets.filter(isBeta),
     },
     {
       key: "transparent-only",
       ...sectionLabels.transparentOnly,
-      collapsible: true,
       wallets: sortedWallets.filter(
         (w) => !isBeta(w) && isTransparentOnly(w)
       ),
@@ -576,8 +573,7 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
             {walletSections.map((section) => {
               const heading = `${section.title} (${section.wallets.length})`;
               const gridId = `wl-section-${section.key}-wallets`;
-              const isCollapsed =
-                section.collapsible && collapsedSections.has(section.key);
+              const isCollapsed = collapsedSections.has(section.key);
 
               return (
                 <section
@@ -591,33 +587,29 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
                       id={`wl-section-${section.key}`}
                       className="wl-section-title"
                     >
-                      {section.collapsible ? (
-                        <button
-                          type="button"
-                          className="wl-section-toggle rounded focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-                          aria-expanded={!isCollapsed}
-                          aria-controls={gridId}
-                          onClick={() => toggleSection(section.key)}
+                      <button
+                        type="button"
+                        className="wl-section-toggle rounded focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                        aria-expanded={!isCollapsed}
+                        aria-controls={gridId}
+                        onClick={() => toggleSection(section.key)}
+                      >
+                        <span>{heading}</span>
+                        <svg
+                          className="wl-section-chevron"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          width="22"
+                          height="22"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
-                          <span>{heading}</span>
-                          <svg
-                            className="wl-section-chevron"
-                            aria-hidden="true"
-                            viewBox="0 0 24 24"
-                            width="22"
-                            height="22"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M6 9l6 6 6-6" />
-                          </svg>
-                        </button>
-                      ) : (
-                        heading
-                      )}
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
                     </h2>
                     <p className="wl-section-note">{section.note}</p>
                   </div>

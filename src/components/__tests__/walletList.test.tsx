@@ -297,15 +297,29 @@ describe("WalletList", () => {
       expect(wallet.stage).toBe("Beta");
     });
 
-    it("collapses and expands the Beta and Transparent-only sections", async () => {
+    it("collapses and expands each section", async () => {
       const user = userEvent.setup();
 
       render(<WalletList allWallets={sectioned} />);
 
-      // In production is always open, so it has no toggle.
+      const production = screen.getByRole("button", {
+        name: "In production (2)",
+      });
+
+      expect(production).toHaveAttribute("aria-expanded", "true");
+
+      await user.click(production);
+
+      expect(production).toHaveAttribute("aria-expanded", "false");
       expect(
-        screen.queryByRole("button", { name: /In production/ })
+        screen.queryByRole("heading", { level: 5, name: "Shielded" })
       ).not.toBeInTheDocument();
+
+      await user.click(production);
+
+      expect(
+        screen.getByRole("heading", { level: 5, name: "Shielded" })
+      ).toBeInTheDocument();
 
       const beta = screen.getByRole("button", { name: "Beta wallets (2)" });
       const transparent = screen.getByRole("button", {

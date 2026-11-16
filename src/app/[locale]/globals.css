@@ -614,7 +614,7 @@ code::-webkit-scrollbar-track {
   color: var(--clr-muted);
 }
 
-/* Beta / Transparent-only headers open and close their section */
+/* Section headers open and close their section */
 .wl-section-toggle {
   display: flex;
   width: 100%;
