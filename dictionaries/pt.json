@@ -484,7 +484,8 @@
     "betaTitle": "Carteiras beta",
     "betaNote": "Ainda em teste. Espere bugs e comece com valores pequenos.",
     "transparentOnlyTitle": "Carteiras apenas transparentes",
-    "transparentOnlyNote": "Estas carteiras não podem usar pools blindados. Saldos e transações são públicos na blockchain."
+    "transparentOnlyNote": "Estas carteiras não podem usar pools blindados. Saldos e transações são públicos na blockchain.",
+    "transparentOnlyLink": "Saiba mais sobre os pools blindados"
   },
   "guides": {
     "title": "Guias",

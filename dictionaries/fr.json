@@ -484,7 +484,8 @@
     "betaTitle": "Portefeuilles bêta",
     "betaNote": "Encore en test. Attendez-vous à des bugs et commencez avec de petits montants.",
     "transparentOnlyTitle": "Portefeuilles uniquement transparents",
-    "transparentOnlyNote": "Ces portefeuilles ne peuvent pas utiliser les pools blindés. Les soldes et les transactions sont publics sur la blockchain."
+    "transparentOnlyNote": "Ces portefeuilles ne peuvent pas utiliser les pools blindés. Les soldes et les transactions sont publics sur la blockchain.",
+    "transparentOnlyLink": "En savoir plus sur les pools blindés"
   },
   "guides": {
     "title": "Guides",

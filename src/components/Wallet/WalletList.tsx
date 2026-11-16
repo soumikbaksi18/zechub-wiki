@@ -5,6 +5,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import WalletItem from "@/components/Wallet/WalletItem";
 import FilterToggle from "@/components/FilterToggle";
 import { useLanguage } from "@/context/LanguageContext";
+import { Link } from "@/i18n/navigation";
 
 interface Wallet {
   title: string;
@@ -51,6 +52,14 @@ const nu7Rank = (w: Wallet) => {
 
 interface Props {
   allWallets: Wallet[];
+}
+
+interface WalletSection {
+  key: string;
+  title: string;
+  note: string;
+  learnMore?: { href: string; label: string };
+  wallets: Wallet[];
 }
 
 const WalletList: React.FC<Props> = ({ allWallets }) => {
@@ -131,6 +140,11 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
       note:
         t?.wallets?.transparentOnlyNote ??
         "These wallets cannot use shielded pools. Balances and transactions are public on the blockchain.",
+      learnMore: {
+        href: "/using-zcash/shielded-pools",
+        label:
+          t?.wallets?.transparentOnlyLink ?? "Learn about shielded pools",
+      },
     },
   };
 
@@ -390,7 +404,7 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
   // In production first, then Beta, then Transparent-only.
   // A beta wallet stays in Beta even if it is transparent-only.
   // Every section can be collapsed with the chevron in its heading.
-  const walletSections = [
+  const allSections: WalletSection[] = [
     {
       key: "production",
       ...sectionLabels.production,
@@ -410,7 +424,11 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
         (w) => !isBeta(w) && isTransparentOnly(w)
       ),
     },
-  ].filter((section) => section.wallets.length > 0);
+  ];
+
+  const walletSections = allSections.filter(
+    (section) => section.wallets.length > 0
+  );
 
   const toggleSection = (key: string) =>
     setCollapsedSections((prev) => {
@@ -611,7 +629,21 @@ const WalletList: React.FC<Props> = ({ allWallets }) => {
                         </svg>
                       </button>
                     </h2>
-                    <p className="wl-section-note">{section.note}</p>
+                    <p className="wl-section-note">
+                      {section.note}
+                      {section.learnMore && (
+                        <>
+                          {" "}
+                          <Link
+                            href={section.learnMore.href}
+                            className="wl-section-link"
+                          >
+                            {section.learnMore.label}
+                            <span aria-hidden="true"> →</span>
+                          </Link>
+                        </>
+                      )}
+                    </p>
                   </div>
 
                   <div

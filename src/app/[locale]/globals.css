@@ -614,6 +614,18 @@ code::-webkit-scrollbar-track {
   color: var(--clr-muted);
 }
 
+.wl-section-link {
+  font-weight: 600;
+  color: var(--clr-accent);
+  white-space: nowrap;
+  text-underline-offset: 2px;
+}
+
+.wl-section-link:hover,
+.wl-section-link:focus-visible {
+  text-decoration: underline;
+}
+
 /* Section headers open and close their section */
 .wl-section-toggle {
   display: flex;

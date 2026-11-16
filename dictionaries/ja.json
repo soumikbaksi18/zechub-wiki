@@ -484,7 +484,8 @@
     "betaTitle": "ベータ版ウォレット",
     "betaNote": "テスト中です。不具合が起こる可能性があるため、少額から始めてください。",
     "transparentOnlyTitle": "トランスペアレント専用ウォレット",
-    "transparentOnlyNote": "これらのウォレットはシールドプールを利用できません。残高と取引はブロックチェーン上で公開されます。"
+    "transparentOnlyNote": "これらのウォレットはシールドプールを利用できません。残高と取引はブロックチェーン上で公開されます。",
+    "transparentOnlyLink": "シールドプールについて詳しく"
   },
   "guides": {
     "title": "ガイド",

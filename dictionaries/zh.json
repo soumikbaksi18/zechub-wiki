@@ -484,7 +484,8 @@
     "betaTitle": "测试版钱包",
     "betaNote": "仍在测试中。可能存在错误，请从小额开始。",
     "transparentOnlyTitle": "仅透明钱包",
-    "transparentOnlyNote": "这些钱包无法使用屏蔽池。余额和交易在区块链上公开可见。"
+    "transparentOnlyNote": "这些钱包无法使用屏蔽池。余额和交易在区块链上公开可见。",
+    "transparentOnlyLink": "了解屏蔽池"
   },
   "guides": {
     "title": "指南",

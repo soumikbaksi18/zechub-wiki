@@ -287,6 +287,25 @@ describe("WalletList", () => {
       ).toBeInTheDocument();
     });
 
+    it("links the Transparent-only subtitle to the shielded pools guide", () => {
+      render(<WalletList allWallets={sectioned} />);
+
+      const transparentSection = document.querySelector(
+        'section[data-section="transparent-only"]'
+      ) as HTMLElement;
+
+      expect(
+        within(transparentSection).getByRole("link", {
+          name: /Learn about shielded pools/,
+        })
+      ).toHaveAttribute("href", "/using-zcash/shielded-pools");
+
+      // Only that section carries the link.
+      expect(
+        screen.getAllByRole("link", { name: /Learn about shielded pools/ })
+      ).toHaveLength(1);
+    });
+
     it("treats `Status: Beta` as the Beta stage", () => {
       const [wallet] = parseMarkdown(`
 ## [StatusBeta](https://st.example)

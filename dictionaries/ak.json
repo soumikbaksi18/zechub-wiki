@@ -484,7 +484,8 @@
     "betaTitle": "Beta sikakorabea",
     "betaNote": "Wɔda so resɔ ahwɛ. Mfomso bi betumi aba, enti fi ase fa sika kakra.",
     "transparentOnlyTitle": "Sikakorabea a ɛyɛ transparent nko ara",
-    "transparentOnlyNote": "Saa sikakorabea yi ntumi mfa shielded pools nni dwuma. Wo sika ne wo nsesa da adi wɔ blockchain no so ma obiara hu."
+    "transparentOnlyNote": "Saa sikakorabea yi ntumi mfa shielded pools nni dwuma. Wo sika ne wo nsesa da adi wɔ blockchain no so ma obiara hu.",
+    "transparentOnlyLink": "Sua shielded pools ho nsɛm"
   },
   "guides": {
     "title": "Akwankyerɛfo",

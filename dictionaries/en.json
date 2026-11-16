@@ -458,7 +458,8 @@
     "betaTitle": "Beta wallets",
     "betaNote": "Still in testing. Expect bugs and start with small amounts.",
     "transparentOnlyTitle": "Transparent-only wallets",
-    "transparentOnlyNote": "These wallets cannot use shielded pools. Balances and transactions are public on the blockchain."
+    "transparentOnlyNote": "These wallets cannot use shielded pools. Balances and transactions are public on the blockchain.",
+    "transparentOnlyLink": "Learn about shielded pools"
   },
   "guides": {
     "title": "Guides",

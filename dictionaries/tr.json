@@ -484,7 +484,8 @@
     "betaTitle": "Beta cüzdanlar",
     "betaNote": "Hâlâ test aşamasında. Hatalar olabilir; küçük miktarlarla başlayın.",
     "transparentOnlyTitle": "Yalnızca şeffaf cüzdanlar",
-    "transparentOnlyNote": "Bu cüzdanlar korumalı havuzları kullanamaz. Bakiyeler ve işlemler blokzincirde herkese açıktır."
+    "transparentOnlyNote": "Bu cüzdanlar korumalı havuzları kullanamaz. Bakiyeler ve işlemler blokzincirde herkese açıktır.",
+    "transparentOnlyLink": "Korumalı havuzlar hakkında bilgi edinin"
   },
   "guides": {
     "title": "Rehberler",

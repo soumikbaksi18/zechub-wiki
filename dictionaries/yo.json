@@ -484,7 +484,8 @@
     "betaTitle": "Wàléètì beta",
     "betaNote": "Ṣì wà nínú ìdánwò. Retí àṣìṣe, kí o sì bẹ̀rẹ̀ pẹ̀lú iye kékeré.",
     "transparentOnlyTitle": "Wàléètì transparent nìkan",
-    "transparentOnlyNote": "Àwọn wàléètì wọ̀nyí kò lè lo shielded pools. Iye owó àti àwọn ìdúnàádúrà hàn sí gbogbo ènìyàn lórí blockchain."
+    "transparentOnlyNote": "Àwọn wàléètì wọ̀nyí kò lè lo shielded pools. Iye owó àti àwọn ìdúnàádúrà hàn sí gbogbo ènìyàn lórí blockchain.",
+    "transparentOnlyLink": "Kọ́ nípa shielded pools"
   },
   "guides": {
     "title": "Àwọn ìwé atọ́nà",

@@ -484,7 +484,8 @@
     "betaTitle": "Beta gakotokuwo",
     "betaNote": "Wole wo dom kpɔ. Vodada aɖewo ate ŋu adzɔ, eya ta dze egɔme kple ga sue.",
     "transparentOnlyTitle": "Transparent gakotoku ɖeɖekpakpɔwo",
-    "transparentOnlyNote": "Gakotoku siawo mate ŋu azã shielded pools o. Ga si le asiwò kple asitsatsawo dze le blockchain dzi na amesiame."
+    "transparentOnlyNote": "Gakotoku siawo mate ŋu azã shielded pools o. Ga si le asiwò kple asitsatsawo dze le blockchain dzi na amesiame.",
+    "transparentOnlyLink": "Srɔ̃ nu tso shielded pools ŋu"
   },
   "guides": {
     "title": "Mɔfialawo",

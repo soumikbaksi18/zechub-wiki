@@ -484,7 +484,8 @@
     "betaTitle": "Akpa ego beta",
     "betaNote": "A ka na-anwale ha. Atụ anya njehie, ma bido na obere ego.",
     "transparentOnlyTitle": "Akpa ego transparent naanị",
-    "transparentOnlyNote": "Akpa ego ndị a enweghị ike iji shielded pools. Ego dị n'ime ha na azụmahịa ha pụtara ìhè na blockchain."
+    "transparentOnlyNote": "Akpa ego ndị a enweghị ike iji shielded pools. Ego dị n'ime ha na azụmahịa ha pụtara ìhè na blockchain.",
+    "transparentOnlyLink": "Mụta maka shielded pools"
   },
   "guides": {
     "title": "Akwụkwọ ntuziaka",

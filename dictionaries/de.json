@@ -484,7 +484,8 @@
     "betaTitle": "Beta-Wallets",
     "betaNote": "Noch in der Testphase. Rechne mit Fehlern und beginne mit kleinen Beträgen.",
     "transparentOnlyTitle": "Nur transparente Wallets",
-    "transparentOnlyNote": "Diese Wallets können keine abgeschirmten Pools nutzen. Guthaben und Transaktionen sind auf der Blockchain öffentlich."
+    "transparentOnlyNote": "Diese Wallets können keine abgeschirmten Pools nutzen. Guthaben und Transaktionen sind auf der Blockchain öffentlich.",
+    "transparentOnlyLink": "Mehr über abgeschirmte Pools"
   },
   "guides": {
     "title": "Anleitungen",

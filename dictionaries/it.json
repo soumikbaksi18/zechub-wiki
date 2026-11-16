@@ -484,7 +484,8 @@
     "betaTitle": "Portafogli beta",
     "betaNote": "Ancora in fase di test. Aspettati dei bug e inizia con piccoli importi.",
     "transparentOnlyTitle": "Portafogli solo trasparenti",
-    "transparentOnlyNote": "Questi portafogli non possono usare i pool schermati. Saldi e transazioni sono pubblici sulla blockchain."
+    "transparentOnlyNote": "Questi portafogli non possono usare i pool schermati. Saldi e transazioni sono pubblici sulla blockchain.",
+    "transparentOnlyLink": "Scopri di più sui pool schermati"
   },
   "guides": {
     "title": "Guide",

@@ -484,7 +484,8 @@
     "betaTitle": "Wallets za beta",
     "betaNote": "Bado zinajaribiwa. Tarajia hitilafu na anza na kiasi kidogo.",
     "transparentOnlyTitle": "Wallets za uwazi pekee",
-    "transparentOnlyNote": "Wallets hizi haziwezi kutumia mabwawa yaliyolindwa. Salio na miamala ni ya umma kwenye blockchain."
+    "transparentOnlyNote": "Wallets hizi haziwezi kutumia mabwawa yaliyolindwa. Salio na miamala ni ya umma kwenye blockchain.",
+    "transparentOnlyLink": "Jifunze kuhusu mabwawa yaliyolindwa"
   },
   "guides": {
     "title": "Miongozo",
