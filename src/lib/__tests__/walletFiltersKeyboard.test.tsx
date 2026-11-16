@@ -8,6 +8,12 @@ jest.mock("@/context/LanguageContext", () => ({
   useLanguage: () => ({ t: {} }),
 }));
 
+jest.mock("@/i18n/navigation", () => ({
+  Link: ({ children, href, ...rest }: React.ComponentProps<"a">) => (
+    <a href={href} {...rest}>{children}</a>
+  ),
+}));
+
 jest.mock("@/components/Wallet/WalletItem", () => ({
   __esModule: true,
   default: ({ title }: { title: string }) => <h2>{title}</h2>,
